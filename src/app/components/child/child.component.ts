@@ -8,6 +8,7 @@ import {
   ElementRef,
   Input,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
   ViewChild,
@@ -25,7 +26,8 @@ export class ChildComponent
     DoCheck,
     AfterContentInit,
     AfterContentChecked,
-    AfterViewInit
+    AfterViewInit,
+    OnDestroy
 {
   @Input() userName = '';
   @ViewChild('wrapper') wrapper!: ElementRef;
@@ -69,4 +71,8 @@ export class ChildComponent
   ngAfterViewChecked(): void {
     console.log('ngAfterViewChecked triggered');
   }
+
+  ngOnDestroy(): void {
+    console.log('Child component is destroyed! :(');
+ }
 }
