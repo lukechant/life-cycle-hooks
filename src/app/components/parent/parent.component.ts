@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent.component.css']
 })
 
-export class ParentComponent {
+export class ParentComponent implements OnInit {
   userName = 'Maria';
+
+  ngOnInit() {
+    console.log('ngOnInit from the parent component');
+ }
 
   updateUser() {
      this.userName = 'Chris';
