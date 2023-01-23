@@ -1,9 +1,16 @@
 import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewInit,
   Component,
+  ContentChild,
+  DoCheck,
+  ElementRef,
   Input,
   OnChanges,
   OnInit,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
@@ -11,11 +18,20 @@ import {
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
 })
-export class ChildComponent implements OnInit, OnChanges {
+export class ChildComponent
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit
+{
   @Input() userName = '';
+  @ViewChild('wrapper') wrapper!: ElementRef;
+  @ContentChild('contentWrapper') content!: ElementRef;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('ngOnChanges triggered', changes);
@@ -34,6 +50,23 @@ export class ChildComponent implements OnInit, OnChanges {
   }
 
   ngDoCheck() {
-     console.log('ngDoCheck triggered');
+    console.log('ngDoCheck triggered');
+  }
+
+  ngAfterContentInit() {
+    console.log('ngAfterContentInit - wrapper', this.wrapper);
+    console.log('ngAfterContentInit - contentWrapper', this.content);
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked triggered');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit - wrapper', this.wrapper);
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked triggered');
   }
 }
