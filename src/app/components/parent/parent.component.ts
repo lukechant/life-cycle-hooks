@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./parent.component.css'],
 })
 export class ParentComponent implements OnInit {
-  userName = 'Maria';
+  userName = 'Luke';
   isChildDestroyed = false;
 
   ngOnInit() {

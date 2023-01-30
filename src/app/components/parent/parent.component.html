@@ -7,13 +7,17 @@
   <div #contentWrapper>foo</div>
 </app-child>
 
+<br/>
+<br/>
 
-<button (click)="destroy()">Destroy Child</button>
+<button (click)="destroy()">Destroy Child Component</button>
 
+<br/>
+<br/>
 
 <app-child *ngIf="!isChildDestroyed"
           [userName]="userName">
-  <div #contentWrapper>foo</div>
+  <div #contentWrapper>bar</div>
 </app-child>
 
-<div *ngIf="isChildDestroyed">Child component is destroyed! :(</div>
+<div *ngIf="isChildDestroyed">Child component is destroyed!</div>
