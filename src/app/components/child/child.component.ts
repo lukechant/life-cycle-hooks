@@ -56,7 +56,6 @@ export class ChildComponent
   }
 
   ngAfterContentInit() {
-    console.log('ngAfterContentInit - wrapper', this.wrapper);
     console.log('ngAfterContentInit - contentWrapper', this.content);
   }
 

@@ -1,5 +1,11 @@
 <button (click)="updateUser()">Update</button>
 
+<p>Constructor is called first - it doesn’t do any change detection, it’s there to initialise there component class</p>
+<p>OnChanges - this is called when an Angular Input or Output changes</p>
+<p>OnInit gets called once on the first change detection cycle - we frequently use it to set up observables to use as inputs</p>
+<p>DoCheck runs when it detects any changes, not just Inputs/Outputs. This will spot things like array and object mutations. This can be useful to testing and debugging. Only used once in RT (with the comment "This isn't ideal"!) </p>
+
+
 <br/>
 <br/>
 
@@ -21,3 +27,8 @@
 </app-child>
 
 <div *ngIf="isChildDestroyed">Child component is destroyed!</div>
+
+<br/>
+<br/>
+
+<img src="/assets/lifecycle-hooks.png" />
