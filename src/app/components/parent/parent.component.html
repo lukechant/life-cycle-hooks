@@ -1,10 +1,14 @@
 <button (click)="updateUser()">Update</button>
 
-<p>Constructor is called first - it doesn’t do any change detection, it’s there to initialise there component class</p>
-<p>OnChanges - this is called when an Angular Input or Output changes</p>
-<p>OnInit gets called once on the first change detection cycle - we frequently use it to set up observables to use as inputs</p>
-<p>DoCheck runs when it detects any changes, not just Inputs/Outputs. This will spot things like array and object mutations. This can be useful to testing and debugging. Only used once in RT (with the comment "This isn't ideal"!) </p>
-
+<p>Constructor is called first - it doesn’t do any change detection, it’s there to initialise there component class.</p>
+<p>OnChanges is called when an Angular Input or Output changes.</p>
+<p>OnInit gets called once on the first change detection cycle - we frequently use it to set up observables to use as inputs. It is only called once.</p>
+<p>DoCheck runs when it detects any changes, not just Inputs/Outputs. This will spot things like array and object mutations. This can be useful for testing and debugging. Only used once in RT with the comment "This isn't ideal"!</p>
+<p>AfterContentInit runs after all content has been initialised so it is well named! It is only called once. One use in RT is checking browser versions and displaying a banner if updates are needed.</p>
+<p>AfterContentChecked works like DoCheck, except it runs after all content has been checked. It is used similarly too. One use in RT - checking whether a carousel has less than 2 items nad removed the buttons if this is the case.</p>
+<p>AfterViewInit runs after the page has been composed - all elements should now be available. It can be used to fire analytics events and services. It also gives us access to ViewChild element refs and can be used for scrolling to or focussing on specific areas of the page or media elements like audio or video players. It is only called once.</p>
+<p>AfterViewChecked works like DoCheck, expect it runs after all content has been composed. Few uses in RT</p>
+<p>OnDestroy is used to close down anything that was initialised when the component is closed. This icludes subcriptions to observables and any fucntions that may have been running as a result of the above life cycle methods. This stops the app using any excess memory or causing a memory leak.</p>
 
 <br/>
 <br/>
